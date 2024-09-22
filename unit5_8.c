@@ -9,6 +9,7 @@ int main()
         Temperature(t);
         printf("Enter next temperature in Fahrenheit(or enter 'q' to quit):");
     }
+    return 0;
 }
 void Temperature(double f)
 {
