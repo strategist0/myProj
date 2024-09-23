@@ -1,5 +1,6 @@
 #include <stdio.h>
 void Temperature(double f);
+#define FIVE 5.0
 int main()
 {
     double t;
@@ -16,7 +17,7 @@ void Temperature(double f)
     double c,k;
     const double r=32.0;
     const double y=273.15;
-    c=5.0/9.0*(f-r);
+    c=FIVE/9.0*(f-r);
     k=c+y;
     printf("The temperature in Celsius is %.3lf\n",c);
     printf("The temperature in Kelvin is %.3lf\n",k);
