@@ -1,6 +1,6 @@
 #include <stdio.h>
-void Temperature(double f);
 #define FIVE 5.0
+void Temperature(double f);
 int main()
 {
     double t;
