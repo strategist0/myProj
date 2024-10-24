@@ -1,3 +1,3 @@
 # myProj
-the assignment I have written.
-C Primer Plus All Rights Reserved
+The assignment I have written.  
+The answer abide by the CC-BY-SA 4.0 agreement. 
