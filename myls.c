@@ -226,9 +226,16 @@ void print_file(const FileNode* file, const Options* opts) {
         struct passwd* pw = getpwuid(file->statbuf.st_uid);
         struct group* gr = getgrgid(file->statbuf.st_gid);
 
+        time_t now = time(NULL);
+        struct tm* file_time = localtime(&file->statbuf.st_mtime);
+        struct tm* now_time = localtime(&now);
+
         char timestr[26];
-        strftime(timestr, sizeof(timestr), "%b %d %H:%M",
-                 localtime(&file->statbuf.st_mtime));
+        if (difftime(now, file->statbuf.st_mtime) > 6 * 30 * 24 * 60 * 60) {
+            strftime(timestr, sizeof(timestr), "%b %d  %Y", file_time);
+        } else {
+            strftime(timestr, sizeof(timestr), "%b %d %H:%M", file_time);
+        }
 
         printf("%s %4ld %-8s %-8s %8ld %s ", perms, file->statbuf.st_nlink,
                pw ? pw->pw_name : "未知用户", gr ? gr->gr_name : "未知组",
