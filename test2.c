@@ -32,7 +32,6 @@ void quicksort(int array[], int low, int high) {
         }
     }
 
-    // 将基准temp放于自己的位置，（第i个位置）
     swap(&array[low], &array[i]);
     quicksort(array, low, i - 1);
     quicksort(array, i + 1, high);
