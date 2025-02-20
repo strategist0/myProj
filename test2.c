@@ -12,6 +12,7 @@ int main() {
     getchar();
     return 0;
 }
+
 void quicksort(int array[], int low, int high) {
     int i = low;
     int j = high;
