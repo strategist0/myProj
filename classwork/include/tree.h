@@ -2,7 +2,7 @@
 #define TREE_H
 
 #define max(a, b) ((a) > (b) ? (a) : (b))
-#define NAME_MAX 100
+#define NAME_MAX 64
 
 #ifndef TREE_DEFINED
 #define TREE_DEFINED

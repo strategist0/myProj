@@ -1,5 +1,5 @@
-#ifndef MENU_H;
-#define MENU_H ;
+#ifndef MENU_H
+#define MENU_H
 
 void displayMenu();
 void displayMenu1();
@@ -10,4 +10,4 @@ void displayMenu1();
 #define BLUE "\033[0;34;34m"
 #define RED "\033[0;32;31m"
 
-#endif;
+#endif

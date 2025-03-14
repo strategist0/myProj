@@ -2,7 +2,6 @@
 #define USER_H
 #include <stdbool.h>
 
-#define NAME_MAX 64
 #define MAX_USERS 10
 #define MAX_NAME_LEN 32
 #define MAX_PASS_LEN 16
