@@ -3,11 +3,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <windows.h>
 #include "menu.h"
 #include "tree.h"
 #include "user.h"
 
 int main() {
+    SetConsoleOutputCP(65001);
     user users[MAX_USERS] = {0};
     user* currUser = NULL;
     int choice;
