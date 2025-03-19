@@ -27,7 +27,19 @@ void displayMenu1() {
     printf(GREEN "1. 注册账号\n" NONE);
     printf(GREEN "2. 登录\n" NONE);
     printf(GREEN "3. 修改密码\n" NONE);
-    printf(GREEN "4. 退出系统\n" NONE);
+    printf(GREEN "4. 进入账号管理员界面\n" NONE);
+    printf(GREEN "5. 退出系统\n" NONE);
     printf(BLUE "====================================================\n" NONE);
     printf(BLUE "请输入您的选择: " NONE);
+}
+
+void AdminiMenu() {
+    printf(GREEN "\n====== 管理员界面 ======\n" NONE);
+    printf(YELLOW "1. 查看所有用户信息\n" NONE);
+    printf(YELLOW "2. 修改管理员密码\n" NONE);
+    printf(YELLOW "3. 修改用户密码\n" NONE);
+    printf(YELLOW "4. 显示所有用户借阅信息\n" NONE);
+    printf(YELLOW "5. 返回\n" NONE);
+    printf(GREEN "=========================\n" NONE);
+    printf("请输入您的选择: ");
 }

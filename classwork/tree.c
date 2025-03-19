@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "menu.h"
+#include "user.h"
 
 #define max(a, b) ((a) > (b) ? (a) : (b))
 #define NAME_MAX 64
@@ -14,19 +15,14 @@ Node* Init_Node(int value, Info* info) {
         perror("malloc failed");
         return NULL;
     }
-    if (node == NULL) {
-        perror("malloc failed");
-        return NULL;
-    }
-    memcpy(node->info, info, sizeof(Info));
+    memcpy(node->info, info, sizeof(Info));  // 正确复制 info 数据到 node->info
 
     node->height = 1;
     node->value = value;
     node->left = NULL;
     node->right = NULL;
     node->parent = NULL;
-    node->info = info;
-    return node;
+    return node;  // 删除重复赋值 node->info 的问题
 }
 
 void Calc_Height(Node* node) {
@@ -34,7 +30,8 @@ void Calc_Height(Node* node) {
         return;
     int left_height = (node->left) ? node->left->height : 0;
     int right_height = (node->right) ? node->right->height : 0;
-    node->height = 1 + max(left_height, right_height);
+    node->height =
+        1 + max(left_height, right_height);  // 修复调用未定义的 max_u 宏
 }
 
 int Balance_Factor(Node* node) {
@@ -326,10 +323,51 @@ void InOrderTraversal(Node* root) {
 
 void DisplayAllBooks(Node* root) {
     if (root == NULL) {
-        printf(YELLOW "当前没有藏书信息！\n" NONE);
+        printf(YELLOW "当前没有借阅信息！\n" NONE);
         return;
     }
-    printf(GREEN "\n══════════════ 藏书清单 ══════════════\n" NONE);
+    printf(GREEN "\n══════════════ 借阅记录 ══════════════\n" NONE);
     InOrderTraversal(root);
     printf(GREEN "═══════════════════════════════════════\n\n" NONE);
+}
+
+void DisplayAllUsersBooks(user* users, int* userCount) {
+    int totalBookCount = 0;  // 用于统计所有用户借阅书籍的总量
+
+    if (*userCount == 0) {
+        printf(YELLOW "当前没有用户信息！\n" NONE);
+        getchar();
+        return;
+    }
+
+    printf(GREEN "\n══════════════ 所有用户的图书信息 ══════════════\n" NONE);
+
+    for (int i = 0; i < *userCount; i++) {
+        printf(BLUE "\n用户ID: %s\n" NONE, users[i].id);
+        if (users[i].library == NULL) {
+            printf(YELLOW "该用户没有借阅任何图书。\n" NONE);
+        } else {
+            printf(GREEN "借阅的图书信息如下：\n" NONE);
+            DisplayAllBooks(users[i].library);  // 调用已有的图书遍历函数
+
+            // 统计该用户借阅的书籍总量
+            int userBookCount = CountBooks(users[i].library);
+            printf(GREEN "该用户共借阅了 %d 本书。\n" NONE, userBookCount);
+
+            // 累加到总书籍数量
+            totalBookCount += userBookCount;
+        }
+    }
+
+    printf(GREEN "═════════════════════════════════════════════════\n" NONE);
+    printf(GREEN "所有用户共借阅了 %d 本书。\n" NONE, totalBookCount);
+    getchar();
+}
+
+int CountBooks(Node* root) {
+    if (root == NULL) {
+        return 0;
+    }
+    // 当前节点的书籍数量 + 左子树的书籍数量 + 右子树的书籍数量
+    return root->info->num + CountBooks(root->left) + CountBooks(root->right);
 }
