@@ -3,6 +3,7 @@
 
 void displayMenu();
 void displayMenu1();
+void AdminiMenu();
 
 #define NONE "\033[0m"
 #define GREEN "\033[0;32;32m"

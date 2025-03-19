@@ -1,8 +1,10 @@
 #ifndef TREE_H
 #define TREE_H
 
-#define max(a, b) ((a) > (b) ? (a) : (b))
+#define max_u(a, b) ((a) > (b) ? (a) : (b))
 #define NAME_MAX 64
+
+#include "user.h"
 
 #ifndef TREE_DEFINED
 #define TREE_DEFINED
@@ -26,9 +28,11 @@ typedef struct TreeNode {
 #endif
 
 int Balance_Factor(Node* node);
+int CountBooks(Node* root);
 void Calc_Height(Node* node);
 void InOrderTraversal(Node* root);
 void DisplayAllBooks(Node* root);
+void DisplayAllUsersBooks(user* users, int* userCount);
 Node* Init_Node(int value, Info* info);
 Node* RRotate(Node* R);
 Node* LRotate(Node* R);
