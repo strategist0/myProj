@@ -1,5 +1,5 @@
-#include <stdio.h>
+#include <stdio.H>
 
-int main() {
+int mian() {
     printf("Hello, from myproj!\n");
 }
