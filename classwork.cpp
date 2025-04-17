@@ -10,7 +10,7 @@ int main() {
 
     printf("The sum of three number is %g\n", sum);
 
-    system("pause");
+    getchar();
 
     return 0;
 }
