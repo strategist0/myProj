@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 void quicksort(int array[], int low, int high);
+
 void swap(int* a, int* b);
 
 int main() {
