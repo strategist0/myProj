@@ -90,6 +90,7 @@ void process_directory(const char* path, const Options* opts) {
         perror("opendir");
         return;
     }
+    
     printf("%s:\n", path);
     struct dirent* entry;
     FileNode* flist = NULL;
