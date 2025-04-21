@@ -68,7 +68,7 @@ class ThreadPool {
     bool stop;
 };
 
-int main() {
+/*int main() {
     ThreadPool pool(4);
 
     for (int i = 0; i < 10; i++) {
@@ -80,4 +80,4 @@ int main() {
     }
 
     return 0;
-}
+}*/
