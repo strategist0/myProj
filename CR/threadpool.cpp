@@ -9,7 +9,7 @@
 #include <thread>
 #include <vector>
 
-//简单线程池
+//…简单线程池
 
 class ThreadPool {
    public:
