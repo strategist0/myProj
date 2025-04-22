@@ -9,8 +9,6 @@
 #include <thread>
 #include <vector>
 
-//…简单线程池
-
 class ThreadPool {
    public:
     ThreadPool(int ThreadNum) : stop(false) {
@@ -68,7 +66,7 @@ class ThreadPool {
     bool stop;
 };
 
-/*int main() {
+int main() {
     ThreadPool pool(4);
 
     for (int i = 0; i < 10; i++) {
@@ -80,4 +78,4 @@ class ThreadPool {
     }
 
     return 0;
-}*/
+}
