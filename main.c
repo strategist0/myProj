@@ -5,3 +5,4 @@ int mian() {
     return 0;
 }
 //edit
+//is not my area
