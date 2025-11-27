@@ -1,9 +1,10 @@
 #include <stdio.h>
 
-int mian() {
-    printf("Hello, from myproj!\n");
-    return 0;
+int main() {
+    char stack[100];
+    int i = 0;
+    while ((stack[i] = getchar()) != '#') {
+        printf("%c", &stack[i]);
+        i++;
+    }
 }
-// edit
-// is not my area wait
-// learn
