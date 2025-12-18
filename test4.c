@@ -1,11 +1,9 @@
 #include <stdio.h>
 
-int main() {
-    int x;
-    printf("please enter your age:\n");
-    scanf("%d", &x);
-    printf("your age is %d", x);
+void main() {
+    int a = 0, b = 0;
+    a = 10;
+    b = 20;
+    printf("a+b=%d\n", a + b);
     getchar();
-    getchar();
-    return 0;
 }
